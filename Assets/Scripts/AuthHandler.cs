@@ -30,6 +30,7 @@ public class AuthHandler : MonoBehaviour
     private bool _isUpdateActivate = false;
     private bool _isBoardActivate = false;
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -277,11 +278,14 @@ public class AuthHandler : MonoBehaviour
                 data.usuarios = data.usuarios.OrderByDescending(i => i.data.score).Take(6).ToArray();
                 
                 Usuarios= data.usuarios;
+                
+                int pos = 0;
 
                 foreach (var user in Usuarios)
                 {
-                    int pos = 0;
+                    
                     LeaderBordText[pos].text = (1 + pos).ToString() + ".    " + Usuarios[pos].username + ": " +Usuarios[pos].data.score ;
+                    pos+= 1;
                 }
 
             }
